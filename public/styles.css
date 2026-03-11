@@ -1,0 +1,100 @@
+/* Variáveis de Tema Global */
+:root {
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --card-bg: #ffffff;
+  --border-color: #dee2e6;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --border-color: #333333;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.form-control, .form-select {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+.form-control:focus, .form-select:focus {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+/* Estilos de Template do Documento (Visualização e Impressão) */
+.print-area {
+  background: white;
+  color: black;
+  min-height: 297mm; /* Aproximação A4 */
+  padding: 20mm;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+/* Template Clássico */
+.print-area.classic .document-header {
+  border-bottom: 3px solid #0d6efd;
+  color: #0d6efd;
+}
+
+/* Template Moderno */
+.print-area.modern .document-header {
+  background-color: #212529;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* Template Minimalista */
+.print-area.minimal .document-header {
+  border-left: 5px solid #198754;
+  padding-left: 15px;
+  color: #198754;
+}
+
+.document-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 15px 0;
+}
+
+/* Controle de Impressão (PDF Nativo) */
+@media print {
+  /* Esconde toda a interface do usuário */
+  .no-print {
+    display: none !important;
+  }
+  
+  /* Ajusta a área de impressão para ocupar a página toda */
+  body {
+    background-color: white;
+  }
+
+  .print-area {
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    min-height: auto;
+  }
+
+  /* Evita quebras de página no meio de imagens ou blocos */
+  img, p, h1, h2, h3 {
+    page-break-inside: avoid;
+  }
+}
