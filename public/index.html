@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocGen - Gerador de Documentos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <div class="container py-4 no-print">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="fw-bold text-primary">DocGen</h1>
+      <button id="themeToggle" class="btn btn-outline-dark">Modo Escuro</button>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="card shadow-sm p-3">
+          <h5 class="card-title border-bottom pb-2">Configurações</h5>
+          
+          <div class="mb-3 mt-3">
+            <label for="docTitle" class="form-label">Título do Documento</label>
+            <input type="text" id="docTitle" class="form-control" placeholder="Ex: Relatório Técnico">
+          </div>
+
+          <div class="mb-3">
+            <label for="templateStyle" class="form-label">Tema Visual</label>
+            <select id="templateStyle" class="form-select">
+              <option value="classic">Clássico (Azul)</option>
+              <option value="modern">Moderno (Escuro)</option>
+              <option value="minimal">Minimalista (Verde)</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="imageUpload" class="form-label">Anexar Imagens</label>
+            <input type="file" id="imageUpload" class="form-control" accept="image/*" multiple>
+            <div id="imageList" class="mt-2 small text-muted"></div>
+          </div>
+
+          <hr>
+
+          <button id="btnGenerateAI" class="btn btn-primary w-100 mb-2">
+            ✨ Gerar Texto com IA
+          </button>
+          <button id="btnPrintPDF" class="btn btn-success w-100 mb-2">
+            📄 Exportar PDF (Nativo)
+          </button>
+          <button id="btnClear" class="btn btn-outline-danger w-100">
+            Limpar Tudo
+          </button>
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="card shadow-sm p-3 mb-4">
+          <label for="docContent" class="form-label fw-bold">Conteúdo Base / Prompt</label>
+          <textarea id="docContent" class="form-control" rows="8" placeholder="Digite o rascunho ou as instruções para a IA gerar o documento..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="printArea" class="print-area container py-4 classic">
+    <div class="document-header mb-4">
+      <h1 id="previewTitle">Título do Documento</h1>
+      <p class="text-muted" id="previewDate"></p>
+    </div>
+    <div id="previewContent" class="document-body">
+      </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
