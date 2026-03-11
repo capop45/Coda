@@ -13,7 +13,7 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Inicializa o SDK do Gemini
-const apiKey = process.env.GEMINI_API_KEY;
+const apiKey = AIzaSyCMSOJExQWVmzEWNTUlT7Fmlrk-fnJjWEA;
 if (!apiKey) {
   console.error('ERRO CRÍTICO: GEMINI_API_KEY não definida no arquivo .env ou nas variáveis de ambiente.');
   process.exit(1);
